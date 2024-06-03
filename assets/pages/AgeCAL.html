@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://xno1n.github.io/assets/imgs/statos.gif">
+    <title>👨🏼‍💻 ・ age cal</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous">
+
+    <!-- fonts -->
+    <style>
+      @font-face {
+        font-weight: 400;
+        font-family: "Poppins";
+        src: url(fonts/Poppins-Regular.ttf);
+      }
+      @font-face {
+        font-weight: 400;
+        font-style: italic;
+        font-family: "Poppins";
+        src: url(fonts/Poppins-Italic.ttf);
+      }
+      @font-face {
+        font-weight: 700;
+        font-family: "Poppins";
+        src: url(fonts/Poppins-Bold.ttf);
+      }
+      @font-face {
+        font-weight: 700;
+        font-style: italic;
+        font-family: "Poppins";
+        src: url(fonts/Poppins-BoldItalic.ttf);
+      }
+      @font-face {
+        font-weight: 800;
+        font-family: "Poppins";
+        src: url(fonts/Poppins-ExtraBold.ttf);
+      }
+      @font-face {
+        font-weight: 800;
+        font-style: italic;
+        font-family: "Poppins";
+        src: url(fonts/Poppins-ExtraBoldItalic.ttf);
+      }
+    </style>
+    <!-- styles -->
+    <style>
+      :root {
+        --white: hsl(0, 0%, 100%);
+        --off-black: hsl(0, 0%, 11%);
+        --balck_light: #131417 ;
+
+        --off-white: hsl(0, 0%, 94%);
+        --light-grey: hsl(0, 0%, 86%);
+        --purple: #0061A5;
+        --light-red: #FF0013;
+        --smokey-grey: hsl(0, 1%, 44%);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: grid;
+        min-height: 100vh;
+        place-items: center;
+        font-family: "Poppins", sans-serif;
+        background-color: var(--balck_light);
+      }
+      .sr-only {
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        clip: rect(0, 0, 0, 0);
+      }
+      .wrapper {
+        border-radius: 20px;
+        border-bottom-right-radius: 25%;
+        padding-inline: 24px;
+        padding-block: 40px 45px;
+        background-color: var(--white);
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+      }
+
+      .form {
+        display: flex;
+        column-gap: 12px;
+        position: relative;
+        margin-bottom: 60px;
+        padding-bottom: 50px;
+        border-bottom: 1px solid var(--light-grey);
+      }
+      .form .unit {
+        position: relative;
+      }
+      .form .label {
+        display: block;
+        font-size: 14px;
+        margin-bottom: 4px;
+        letter-spacing: 4px;
+        color: var(--smokey-grey);
+        text-transform: uppercase;
+      }
+      .form .unit.invalid .label {
+        color: var(--light-red);
+      }
+      
+      .form .input {
+        width: 85px;
+        height: 55px;
+        outline: none;
+        padding: 14px;
+        font: inherit;
+        font-weight: 700;
+        border-radius: 8px;
+        appearance: textfield;
+        -moz-appearance: textfield;
+        will-change: border-color;
+        caret-color: var(--purple);
+        border: 1px solid var(--light-grey);
+      }
+      .form .input::-webkit-outer-spin-button,
+      .form .input::-webkit-inner-spin-button {
+        appearance: textfield;
+        -webkit-appearance: none;
+      }
+      .form .input:focus {
+        border-color: var(--purple);
+      }
+      .form .unit.invalid .input {
+        caret-color: var(--light-red);
+        border-color: var(--light-red);
+      }
+      .form .input::placeholder {
+        opacity: 0.7;
+        font-weight: 800;
+        font-family: inherit;
+        color: var(--smokey-grey);
+      }
+      .form [role="alert"] {
+        opacity: 0;
+        bottom: -24px;
+        display: block;
+        font-size: 10px;
+        font-style: italic;
+        position: absolute;
+        will-change: opacity;
+        color: var(--light-red);
+      }
+      .form .unit.invalid [role="alert"] {
+        opacity: 0.8;
+      }
+      .form .submit {
+        width: 60px;
+        height: 60px;
+        border: none;
+        bottom: -30px;
+        cursor: pointer;
+        position: absolute;
+        border-radius: 50%;
+        left: calc(50% - 30px);
+        background: var(--purple);
+        transition-duration: 0.3s;
+        will-change: background-color;
+        transition-property: background-color;
+      }
+      .form .submit:is(:hover, :focus-visible) {
+        background-color: var(--off-black);
+      }
+      @media (max-width: 991px) {
+        .form .submit svg {
+          transform: scale(0.7);
+        }
+      }
+
+      .result {
+        font-style: italic;
+        color: var(--off-black);
+      }
+      .result .unit {
+        line-height: 1.1;
+        font-weight: 800;
+        font-size: 3.5rem;
+      }
+      .result .num {
+        color: var(--purple);
+      }
+
+      @media (min-width: 992px) {
+        .wrapper {
+          width: 840px;
+          padding: 54px;
+        }
+
+        .form {
+          column-gap: 30px;
+          margin-bottom: 48px;
+          padding-bottom: 48px;
+        }
+        .form .unit {
+        }
+        .form .label {
+          margin-bottom: 8px;
+        }
+        .form .input {
+          width: 160px;
+          height: 72px;
+          padding: 20px;
+          font-size: 2rem;
+        }
+        .form [role="alert"] {
+          font-size: 12px;
+        }
+        .form .submit {
+          width: 94px;
+          height: 94px;
+          bottom: -47px;
+          left: calc(100% - 94px);
+        }
+
+        .result {
+        }
+        .result .unit {
+          font-size: 6.3rem;
+        }
+        .result .num {
+        }
+        .result .num.spacing {
+          letter-spacing: 18px;
+          margin-inline-end: -30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrapper">
+      <h1 class="sr-only">Age calculator app</h1>
+      <form class="form" novalidate>
+        <label class="unit">
+          <strong class="label">Day</strong>
+          <input
+            min="1"
+            max="31"
+            required
+            name="day"
+            autofocus
+            type="number"
+            class="input"
+            placeholder="DD"
+            inputmode="numeric"
+            title="Enter your birth day"
+            aria-label="Enter your birth day"
+          />
+          <span id="day-validation" role="alert" aria-live="assertive"></span>
+        </label>
+        <label class="unit">
+          <strong class="label">Month</strong>
+          <input
+            min="1"
+            max="12"
+            required
+            name="month"
+            type="number"
+            class="input"
+            placeholder="MM"
+            inputmode="numeric"
+            title="Enter your birth month"
+            aria-label="Enter your birth month"
+          />
+          <span id="month-validation" role="alert" aria-live="assertive"></span>
+        </label>
+        <label class="unit">
+          <strong class="label">Year</strong>
+          <input
+            required
+            name="year"
+            type="text"
+            minlength="4"
+            maxlength="4"
+            class="input"
+            placeholder="YYYY"
+            inputmode="numeric"
+            title="Enter your birth year"
+            aria-label="Enter your birth year"
+          />
+          <span id="year-validation" role="alert" aria-live="assertive"></span>
+        </label>
+        <button
+          class="submit"
+          type="submit"
+          title="Calculate"
+          aria-label="Calculate"
+        >
+          <!-- prettier-ignore -->
+          <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44"><g fill="none" stroke="#FFF" stroke-width="2"><path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"/></g></svg>
+        </button>
+      </form>
+
+      <article class="result">
+        <h2 class="unit"><span class="num spacing years">--</span> years</h2>
+        <h2 class="unit"><span class="num spacing months">--</span> months</h2>
+        <h2 class="unit"><span class="num spacing days">--</span> days</h2>
+      </article>
+    </main>
+
+    <script>
+      (function () {
+        let isInvalid = false;
+        const date = new Date();
+        const $ = document.querySelector.bind(document);
+        const $$ = document.querySelectorAll.bind(document);
+        let animate = {
+          num: { days: 0, months: 0, years: 0 },
+          frameRef: { days: null, months: null, years: null },
+        };
+
+        /*
+          Helpers
+        */
+
+        const handleValidationMsg = (inputName, msg, isFocus = true) => {
+          isInvalid = true;
+          $(`#${inputName}-validation`).innerHTML = msg;
+          $(`.form .unit:has(.input[name=${inputName}])`).classList.add(
+            "invalid"
+          );
+          isFocus && $(".unit.invalid .input").focus();
+        };
+
+        const handleClearValidation = (inputName) => {
+          isInvalid = false;
+          $(`#${inputName}-validation`).innerHTML = "";
+          $(`.form .unit:has(.input[name=${inputName}])`).classList.remove(
+            "invalid"
+          );
+        };
+
+        const animateNum = (name, num) => {
+          if (animate.num[name] > num)
+            return cancelAnimationFrame(animate.frameRef[name]);
+
+          $$(".num.spacing")?.forEach((num) => num.classList.remove("spacing"));
+          animate.frameRef[name] = requestAnimationFrame(() => {
+            $(`.result .${name}`).innerHTML = animate.num[name];
+            animate.num[name]++;
+            animateNum(name, num);
+          });
+        };
+
+        const calculate = (inputDate) => {
+          const daysInYear = 365.242199,
+            daysInMonth = 30.4368499;
+          const diffDays =
+            (date.getTime() - inputDate.getTime()) / (1000 * 60 * 60 * 24);
+
+          animateNum("years", Math.floor(diffDays / daysInYear));
+          animateNum(
+            "months",
+            Math.floor((diffDays % daysInYear) / daysInMonth)
+          );
+          animateNum("days", Math.floor((diffDays % daysInYear) % daysInMonth));
+        };
+
+        const reset = () => {
+          isInvalid = false;
+          animate = {
+            num: { days: 0, months: 0, years: 0 },
+            frameRef: { days: null, months: null, years: null },
+          };
+          $(".input[name=day]").focus();
+          $$(".num").forEach((num) => (num.innerHTML = "--"));
+          $$(".input").forEach((inp) => {
+            inp.value = "";
+            handleClearValidation(inp.name);
+          });
+        };
+
+        /*
+          Events
+        */
+
+        // window.onmouseup = getSelectedText;
+
+        $$(".input").forEach((input) => {
+          // Prevent NaN or invalid values
+          input.addEventListener("keypress", (e) => {
+            if (
+              (isNaN(+e.key) && e.key !== "Enter") ||
+              (input.name !== "year" &&
+                input.value.length === 2 &&
+                getSelection().toString() !== input.value)
+            )
+              e.preventDefault();
+          });
+
+          // Input Validation
+          input.addEventListener("input", () => {
+            handleClearValidation(input.name);
+
+            // Check if inputs have no value
+            if (input.validity.valueMissing) {
+              handleValidationMsg(input.name, "This field is required", false);
+              return;
+            }
+
+            // Check if inputs have proper values
+            if (
+              input.validity.tooLong ||
+              input.validity.tooShort ||
+              input.validity.rangeOverflow ||
+              input.validity.rangeUnderflow
+            ) {
+              handleValidationMsg(
+                input.name,
+                `Must be a valid ${input.name}`,
+                false
+              );
+            }
+          });
+        });
+
+        $(".form").addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          // Check if all inputs are valid
+          if (isInvalid) {
+            $(".unit.invalid .input").focus();
+            return;
+          }
+
+          const day = +$(".input[name=day]").value;
+          const year = +$(".input[name=year]").value;
+          const month = +$(".input[name=month]").value;
+          const inputDate = new Date(year, month - 1, day);
+
+          // Check if inputs have no value
+          if (!day || !month | !year) {
+            $$(".input").forEach(
+              (inp) =>
+                !inp.value &&
+                handleValidationMsg(inp.name, "This field is required")
+            );
+            return;
+          }
+
+          // Check if date is invalid
+          if (day > new Date(year, month, 0).getDate()) {
+            handleValidationMsg("day", "Must be a valid date");
+            return;
+          }
+
+          // Check if date in the past
+          if (year > date.getFullYear()) {
+            handleValidationMsg("year", "Must be in the past");
+            return;
+          }
+          if (month > date.getMonth() && year === date.getFullYear()) {
+            handleValidationMsg("month", "Must be in the past");
+            return;
+          }
+          if (
+            day > date.getDate() &&
+            month.value === date.getMonth() + 1 &&
+            year.value === date.getFullYear()
+          ) {
+            handleValidationMsg("day", "Must be in the past");
+            return;
+          }
+
+          reset();
+          calculate(inputDate);
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../imgs/statos.gif">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>👨🏼‍💻 ・ xno1n | Make Everything Ok :)</title>
+	<style type="text/css"> 
+	body {
+		font-family: "Poppins", sans-serif;
+		font-size: 14px;
+		color:rgb(255, 255, 255);
+		background: #131417;;
+	}
+	header nav .header_logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    object-fit: cover;
+    border: 5px solid #3b3d4e93;
+    cursor: pointer;
+}
+header nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    animation: fadeInDown .8s;
+}
+
+header nav .header_links ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+header nav .header_links ul li, section.main ul li {
+    list-style-type: none;
+}
+
+header nav .header_links ul li a {
+    outline: none;
+    text-decoration: none;
+    color: #a6a8b8;
+    padding: 5px 12px;
+    transition: 0.3s all;
+    font-size: 15px;
+}
+header nav .header_links ul li a:hover {
+    color: white;
+}
+
+header nav .header_logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    object-fit: cover;
+    border: 5px solid #3b3d4e93;
+    cursor: pointer;
+}
+	#hole {
+		position:absolute;
+		width:604px;
+		height: 250px; 
+		top:50%;
+		left:50%;
+		margin:-125px 0 0 -302px;
+		background:#444;
+		box-shadow:0 0 50px #000 inset, 0 0 20px #fff;
+		border-radius:12px;
+		overflow:hidden;
+	}
+	#btn {
+		-webkit-user-select:none;
+		-moz-user-select:none;
+		user-select:none;
+		position:absolute;
+		top:50%;
+		left:50%;
+		margin:-100px 0 0 -250px;
+		width: 500px;
+		height: 200px; 
+		-webkit-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		-o-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+		
+		-webkit-perspective-origin:50% 50% 0; 
+		-moz-perspective-origin:50% 50% 0; 
+		-o-perspective-origin:50% 50% 0; 
+		perspective-origin:50% 50% 0; 
+		
+		-webkit-perspective: 850px;
+		-moz-perspective: 850px;
+		-o-perspective: 850px;
+		perspective: 850px;
+		
+		-webkit-transition:-webkit-transform 0.3s linear;
+		-moz-transition:-moz-transform 0.3s linear;
+		-o-transition:-o-transform 0.3s linear;
+		transition:transform 0.3s linear;
+		
+		cursor:pointer;
+	}
+	#btn:active{
+		-webkit-transform:scale(0.96);
+		-moz-transform:scale(0.96);
+		-o-transform:scale(0.96);
+		transform:scale(0.96);
+	}
+	#box {
+		position: absolute; 
+		height: 100%;
+		width: 100%;
+		-webkit-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		-o-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+	}
+	.side{
+		box-shadow:0 0 10px #666;
+		-webkit-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		-o-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+	}
+	.side_front{
+		background:#16161a;
+		position: absolute; 
+		left:0;top:0;
+		width:100%;height:100%;
+		-webkit-transform:translateZ(0px);
+		-moz-transform:translateZ(0px);
+		-o-transform:translateZ(0px);
+		transform:translateZ(0px);
+		color:#444;
+		border-radius:3px;
+		font-size:45px;
+		text-align:center;
+		line-height:200px;
+		text-shadow:0px 0px 2px #666;
+		font-weight:bold;
+		box-shadow:0 0 5px #999 ,0 0 20px #fff inset;
+	}
+	#btn:active .side_front{
+		background:#ddd;
+		box-shadow:0 0 5px #999 ,0 0 20px #eee inset;
+	}
+	.side_back{
+		background:transparent;
+		position: absolute; 
+		left:0;top:0;
+		width:100%;height:100%;
+		-webkit-transform:translateZ(0px);
+		-moz-transform:translateZ(0px);
+		-o-transform:translateZ(0px);
+		transform:translateZ(0px);
+	}
+	.side_top{
+		background:#ddd;
+		background-image:-webkit-linear-gradient(bottom,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+		background-image:-moz-linear-gradient(bottom,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+		background-image:-o-linear-gradient(bottom,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+		background-image:linear-gradient(bottom,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+		position: absolute; 
+		left:0;top:0;
+		width:100%;height:120px;
+		-webkit-transform-origin:top center;
+		-moz-transform-origin:top center;
+		-o-transform-origin:top center;
+		transform-origin:top center;
+		
+		-webkit-transform:translateZ(0px) rotateX(90deg);
+		-moz-transform:translateZ(0px) rotateX(90deg);
+		-o-transform:translateZ(0px) rotateX(90deg);
+		transform:translateZ(0px) rotateX(90deg);
+	}
+	#btn:active .side_top{
+		background-image:-webkit-linear-gradient(bottom,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.1) 100%);
+		background-image:-moz-linear-gradient(bottom,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.1) 100%);
+		background-image:-o-linear-gradient(bottom,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.1) 100%);
+		background-image:linear-gradient(bottom,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.1) 100%);
+	}
+	.side_bottom{
+		background:#ddd;
+		background-image:-webkit-linear-gradient(top,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+		background-image:-moz-linear-gradient(top,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+		background-image:-o-linear-gradient(top,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+		background-image:linear-gradient(top,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+		position: absolute; 
+		left:0;bottom:0;
+		width:100%;height:120px;
+		-webkit-transform-origin:bottom center;
+		-moz-transform-origin:bottom center;
+		-o-transform-origin:bottom center;
+		transform-origin:bottom center;
+		
+		-webkit-transform:translateZ(0px) rotateX(-90deg);
+		-moz-transform:translateZ(0px) rotateX(-90deg);
+		-o-transform:translateZ(0px) rotateX(-90deg);
+		transform:translateZ(0px) rotateX(-90deg);
+	}
+	#btn:active .side_bottom{
+		background-image:-webkit-linear-gradient(top,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.1) 100%);
+		background-image:-moz-linear-gradient(top,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.1) 100%);
+		background-image:-o-linear-gradient(top,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.1) 100%);
+		background-image:linear-gradient(top,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.1) 100%);
+	}
+	.side_left{
+		position: absolute; 
+		left:0;top:0;
+		background:#ddd;
+		background-image:-webkit-linear-gradient(right,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+		background-image:-moz-linear-gradient(right,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+		background-image:-o-linear-gradient(right,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+		background-image:linear-gradient(right,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+		width:120px;height:100%;
+		-webkit-transform-origin:center left;
+		-moz-transform-origin:center left;
+		-o-transform-origin:center left;
+		transform-origin:center left;
+		
+		-webkit-transform:translateZ(0px) rotateY(270deg);
+		-moz-transform:translateZ(0px) rotateY(270deg);
+		-o-transform:translateZ(0px) rotateY(270deg);
+		transform:translateZ(0px) rotateY(270deg);
+	}
+	#btn:active .side_left{
+		background-image:-webkit-linear-gradient(right,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.1) 100%);
+		background-image:-moz-linear-gradient(right,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.1) 100%);
+		background-image:-o-linear-gradient(right,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.1) 100%);
+		background-image:linear-gradient(right,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.1) 100%);
+	}
+	.side_right{
+		position: absolute; 
+		right:0;top:0;
+		background:#ddd;
+		background-image:-webkit-linear-gradient(left,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+		background-image:-moz-linear-gradient(left,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+		background-image:-o-linear-gradient(left,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+		background-image:linear-gradient(left,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+		width:120px;height:100%;
+		-webkit-transform-origin:center right;
+		-moz-transform-origin:center right;
+		-o-transform-origin:center right;
+		transform-origin:center right;
+		-webkit-transform:translateZ(0px) rotateY(-270deg);
+		-moz-transform:translateZ(0px) rotateY(-270deg);
+		-o-transform:translateZ(0px) rotateY(-270deg);
+		transform:translateZ(0px) rotateY(-270deg);
+	}
+	#btn:active .side_right{
+		background-image:-webkit-linear-gradient(left,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.1) 100%);
+		background-image:-moz-linear-gradient(left,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.1) 100%);
+		background-image:-o-linear-gradient(left,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.1) 100%);
+		background-image:linear-gradient(left,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.1) 100%);
+	}
+	#cover{
+		position:absolute;
+		top:0;left:0;right:0;bottom:0;z-index:10;
+		background:rgba(200,200,200,0.95) url(wenli.png);
+		display:none;
+		opacity:0;
+		-webkit-transition:opacity 0.5s ease;
+		-moz-transition:opacity 0.5s ease;
+		-o-transition:opacity 0.5s ease;
+		transition:opacity 0.5s ease;
+	}
+	#win{
+		position:absolute;
+		width:700px;height:200px;
+		top:50%;left:50%;margin:-100px 0 0 -350px;
+	}
+	#line{
+		height:30px;
+		margin:10px 60px;
+		border-radius:30px;
+		border:5px solid #777;
+	}
+	#line-inner{
+		margin:2px;
+		border-radius:26px;
+		height:26px;
+		background:#777;
+		width:26px;
+		-webkit-transition:width 1.1s linear;
+		-moz-transition:width 1.1s linear;
+		-o-transition:width 1.1s linear;
+		transition:width 1.1s linear;
+	}
+	#remaining{
+		text-align:center;
+		color:#777;
+		font-size:20px;
+		font-weight:bold;
+	}
+	#notice{
+		margin:10px 0 20px 0;
+		display:none;
+		text-align:center;
+		color:#16161a;
+		font-size:20px;
+	}
+	#ok{
+		display:none;
+		text-align:center;
+		height:30px;width:100px;line-height:30px;
+		margin:0 auto;
+		font-size:20px;
+		color:#777;
+		font-weight:bold;
+		border:4px solid #777;
+		border-radius:3px;
+		cursor:pointer;
+	}
+	#ok:hover{
+		background:#777;
+		color:#ccc;
+	}
+	#about{
+		position:absolute;
+		bottom:20px;left:0;right:0;text-align:center;
+		font-weight:bold;
+		opacity: 0.5;
+	}
+	</style> 
+	</head> 
+<body>  
+	
+	<header>
+		<nav>
+			<div class="header_logo">
+				<img src="../imgs/statos.gif" alt="" srcset="">
+			</div>
+			<div class="header_links">
+				<ul class="nav_links">
+					<li class="nav_link"><a href="https://xno1n.github.io/">Home</a></li>
+					<li class="nav_link"><a href="https://xno1n.github.io/Blog/">Blog</a></li>
+					<li class="nav_link"><a href="./LiveProject.html">Live Project</a></li> 
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<div id="hole"> 
+	<div id="btn"> 
+		<div id="box"> 
+			<div class="side side_top"></div> 
+			<div class="side side_left"></div> 
+			<div class="side side_right"></div> 
+			<div class="side side_bottom"></div> 
+			<div class="side side_back"></div>
+			<div class="side side_front">Make everything ok :)</div> 
+		</div>  
+	</div> 
+	</div> 
+	<div id="cover">
+		<div id="win">
+			<div id="line"><div id="line-inner"></div></div>
+			<div id="remaining"><span id="remaining-text">20 Seconds Remaining</div>
+			<div id="notice">
+				：） Take it easy. Then, what is the next step ?
+			</div>
+			<div id="ok">O&nbsp;&nbsp;K</div>
+		</div>
+	</div>
+	<div id="about">
+		<p>Suggest to browse in Firefox, Safari and Chrome  </p>
+		<p>Idea from <a href="http://make-everything-ok.com/">http://make-everything-ok.com/</a>, Code by Mahyar Azad, Powered by HTML 5.</p>
+	</div>
+	
+	<script type="text/javascript" charset="utf-8">
+	function byId(str){
+		return document.getElementById(str);
+	}
+	function addEvent(node,type,fn){
+		node['addEventListener'] && node['addEventListener'](type,fn,false);
+		node['attachEvent'] && node['attachEvent'](type,fn);
+	}
+	function progress(fn){
+		var remaining = byId('remaining'),
+			lineInner = byId('line-inner'),
+			sec = 20,
+			timer = setInterval(function(){
+				if(sec){
+					remaining.innerHTML = --sec + ' Seconds Remaining...';
+					lineInner.style.width = (26+(566-26)/30*(30-sec))+'px';
+				}
+				else{
+					clearInterval(timer);
+					setTimeout(function(){
+						remaining.innerHTML = 'Everything is ok now!';
+						fn();
+					},1000);
+				}
+			},1000);
+	}
+	function last(){
+		var notice = byId('notice'),
+			ok = byId('ok'),
+			cover = byId('cover');
+		 ok.style.display = notice.style.display = 'block';
+		 addEvent(ok,'mousedown',function(){		 	
+		 	 cover.style.opacity= '0';
+		 	setTimeout(function(){
+		 		reset();
+		 	},1000);
+		 });
+	}
+	function reset(){
+		byId('cover').style.display = byId('ok').style.display = byId('notice').style.display = 'none';
+		byId('remaining').innerHTML = '10 Seconds Remaining';
+		byId('line-inner').style.width = '26px';
+	}
+	var btn = byId('btn'),
+		cover = byId('cover');
+	addEvent(btn,'click',function(e){
+		if(cover.style.display == 'block') return false;
+		e.stopPropagation();
+		cover.style.display = 'block';
+		setTimeout(function(){
+			cover.style.opacity = 1;
+			setTimeout(function(){
+				progress(last);
+			},800);
+		},800);
+	});
+
+	</script>
+
+	
+	<!-- ShareTo Button BEGIN -->    <!-- Swiper.js -->
+    <script src="../js/swiper-bundle.min.js"></script>
+    <!-- Custom script -->
+    <script src="../js/main.js"></script>
+	
+	<script type="text/javascript" src="http://s.shareto.com.cn/js/shareto_button.js" charset="utf-8"></script>
+	<!-- ShareTo Button END -->
+</body> 
+</html> 
