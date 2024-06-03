@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://xno1n.github.io/assets/imgs/statos.gif" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>The play list</title>
+</head>
+
+<body id="body">
+    <div class="container">
+        <main>
+            <nav class="navbar">
+                <a href="../index.html">
+                    <img src="https://xno1n.github.io/assets/imgs/statos.gif" class="homeIcon" alt="" srcset="" >
+                </a>
+                <p class="navTitle">Music Player</p>
+                <img src="./img/Pfp.svg" class="pfp" alt="">
+            </nav>
+            <header>
+                <section class="about" id="about">
+                    <div class="texts">
+                        <div>
+                            <p class="headTitle">daily freaky music</p>
+                            <p class="headP" id="smallText">Here, I have shared some of the best songs that have been interesting to me in a month so that you can enjoy them as well. <br>
+                                <span class="more" onclick="moreText()">
+                                    farsi
+                                </span>
+                            </p>
+                            <p class="headP headPMenos" id="fullText">اینجا به صورت روزانه چند اهنگ برتری که داخل یک ماه برام جالب بوده رو براتون به اشتراک گذاشتم تا شما هم ازشون لذت ببرید<br>
+                                <span class="more" onclick="lessText()">
+                                    english
+                                </span>
+                            </p>
+
+                        </div>
+                        <button class="btnListen">
+                            <p class="ouvir">open</p>
+                            <div class="streamings">
+                                <a href="#"
+                                    target="_blank" class="musicAppIco">
+                                    <img src="./img/spotify.svg" alt="">
+                                </a>
+                                <a href="https://music.apple.com/br/artist/the-neighbourhood/219350813" target="_blank"
+                                    class="musicAppIco">
+                                    <img src="./img/appleMusic.svg" alt="">
+                                </a>
+                                <a href="https://music.youtube.com/channel/UC1cnYMXqKdazz-gDPKaDFyg?feature=gws_kp_artist&feature=gws_kp_artist"
+                                    target="_blank" class="musicAppIco">
+                                    <img src="./img/ytMusic.svg" alt="">
+                                </a>
+                            </div>
+                        </button>
+                    </div>
+                </section>
+            </header>
+            <article class="cardMusic" id="cardMusic">
+                <div class="photoMusic">
+                    <img src="./" alt="" id="albumPhoto">
+                    <div class="textsCard">
+                        <p class="tituloCard" id="musicName">NOME</p>
+                        <p class="paragrafoCard" id="album">ALBUM</p>
+                        <audio id="music">
+                            <source src="" id="currentMusic" type="audio/mpeg" />
+                        </audio>
+                        <div class="player">
+                            <button id="playBtn"><img src="./img/play.svg" alt=""></button>
+                            <button id="pauseBtn"><img src="./img/pause.svg" alt=""></button>
+                            <div id="progressContainer">
+                                <div id="progressBar"></div>
+                            </div>
+                            <img src="./img/heart.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <section class="musicVideo">
+                <article class="videoPlayer" id="videoPlayer">
+                    <div class="cardVideoPlayer">
+                        <iframe width="560" height="315" src="" id="video"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                        <button class="btnListen exitModal" onclick="exitModal()">
+                            <p><strong>Clique para voltar</strong> </p>
+                        </button>
+                    </div>
+                </article>
+                <section class="musicas">
+                    <p class="headTitle">music's <span class="tituloLegenda">the best</span></p>
+                    <div class="carrossel">
+                        <div class="card1" onclick="music1()">
+                            <img src="./img/breathe slow icon.jpg" alt="">
+                            <div class="textsCard">
+                                <p class="tituloCard">breathe slow</p>
+                                <p class="paragrafoCard">(w/ meltycanon)</p>
+                            </div>
+                            <img src="./img/heart.svg" alt="">
+                        </div>
+                        <div class="card3" onclick="music2()">
+                            <img src="./img/balanc.jpg" alt="">
+                            <div class="textsCard">
+                                <p class="tituloCard">Balance <span class="paragrafoCard">alireza jj</span></p>
+                                <p class="paragrafoCard">(Ft Mehrad Hidden & Sohrab Mj & Khalse)</p>
+                            </div>
+                            <img src="./img/heart.svg" alt="">
+                        </div>
+                        <div class="card2" onclick="music3()">
+                            <img src="./img/westside.jpg" alt="">
+                            <div class="textsCard">
+                                <p class="tituloCard">Westside</p>
+                                <p class="paragrafoCard">(ft Arash Saretan & Parsa1)<br> 8 - Arta</p>
+                            </div>
+                            <img src="./img/heart.svg" alt="">
+                        </div>
+
+                        <div class="card4" onclick="music4()">
+                            <img src="./img/ghors.jpg" alt="">
+                            <div class="textsCard">
+                                <p class="tituloCard" style="line-height: 23px;">ghors 2 <br> Hiphopologist</p>
+                                <p class="paragrafoCard">album ghors - <br> ft poobon</p>
+                            </div>
+                            <img src="./img/heart.svg" alt="">
+                        </div>
+                
+
+                </section>
+                <footer>
+                    <a href="https://github.com/xno1n" target="_blank">
+                        <p class="navTitle">@xno1n on GitHub</p>
+                    </a>
+                </footer>
+            </section>
+        </main>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+
+</html>
